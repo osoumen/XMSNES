@@ -1,0 +1,104 @@
+SPX_SNES FUNCTION DESCRIPTIONS
+
+parameter 's' is the stack
+
+6/30/2007
+
+INITIALIZATION---------------------------------------------------------------------------------------------------------
+
+BootSPC
+	Call this to transfer the xmsnes driver (before doing anything else)
+
+TRANSFER FUNCTIONS-----------------------------------------------------------------------------------------------------
+
+SPX_Transfer_LFT
+	Call this to transfer the linear frequency table.
+SPX_Transfer_AFT
+	Call this to transfer the amiga frequency table.
+
+  Songs requite either the linear or amiga frequency table to play. Songs can
+play with either table, but the pitch slides will be off if not using the
+right table.
+  The amiga frequency table uses 4k more of SPC ram compared to the linear
+table, limiting the size a little more.
+
+SPX_Transfer_XMS
+	Call this to transfer a full XMS song.
+	a: 8: xms address bank#
+	y:16: xms address offset
+
+SPX_Transfer
+	SNES->SPC transfer routine.
+	a: 8: SNES file bank#
+	x:16: SNES file length / 3
+	y:16: SPC transfer offset, 0 = use next area
+	s:16: SNES file offset
+
+MESSAGES---------------------------------------------------------------------------------------------------------------
+
+SPX_Routine
+	Call this once per frame to send/receive messages to/from the SPC.
+
+SPX_Flush
+	This function flushes the message queue (ensuring all messages have
+	been sent before continuing).
+
+MAIN VOLUME------------------------------------------------------------------------------------------------------------
+
+SPX_SetVol
+	Sets SPC main volume. Will "SEP #$20" afterwards.
+	a:16: low = volume left, high = volume right --values are signed
+
+MODULE PLAYBACK--------------------------------------------------------------------------------------------------------
+
+SPXM_Play
+	Starts playing the song.
+
+SPXM_Reset
+	Resets song playback.
+
+SPXM_SetVol
+	Sets module volume.
+	a: 8: 0-255 volume
+
+SPXM_BuildDir
+	Tells the SPC to build the directory, call after SPX_Transfer_XMS
+
+  This is an old function, use packages instead.
+
+SOUND EFFECTS----------------------------------------------------------------------------------------------------------
+
+SPXS_Play
+	Play a sound effect.
+	a: 8: bits=llllrrrr, left/right volume, values are signed nibbles
+	x:16: bits=0ccfffffssssssss
+  c = priority (higher values wont get interrupted by lower ones)
+  f = frequency, playback hz = f * 4000
+  s = sample number
+
+SPXS_SetParam
+	Sets SFX parameter.
+	a: 8: index
+	x:16: param, low byte used only
+	
+  indexes:
+  0: samp_usage, -1 to 7, channels<samp_usage+1> to channel 7 will be interrupted by sound effects
+
+PACKAGES---------------------------------------------------------------------------------------------------------------
+
+SPXP_InstallPackage
+	Installs a xmsnes package
+	a: 8: package bank#
+	x:16: package offset
+
+SPXP_LoadSong
+	Loads a song from the package
+	x:16: song index
+
+SPXP_LoadSample
+	Loads a sample from the package
+	x:16: sample index
+	y:16: spc transfer address, 0 will use the next area
+	
+  Be careful not to transfer too many samples and overflow the spc data into important
+sections.

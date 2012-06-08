@@ -1,0 +1,28 @@
+XMB File Format v1.0
+  by eKid
+
+XMSNES BRR sample.
+
+Last Updated: 10:09 AM 7/2/2007
+
+------------------------------------
+
+ 6-byte Header
+         0   1   2   3   4   5
+       +---+---+---+---+---+---+
+0x0000 |LENGTH | LOOP  |VER|RES|
+       +---+---+---+---+---+---+
+
+	LENGTH = xmb length / 3
+	LOOP = Sample loop start, $FFFF if no loop
+	VER = Version (100)
+	RES = RESERVED
+
+------------------------------------
+
+ Sample Data
+
+         0   1   2   3   4   5   6   7
+       +---+---+---+---+---+---+---+--~~~~~~~~~~~~~~
+0x0008 | BRR data, length (bytes) = (LENGTH-2) *3
+       +---+---+---+---+---+---+--~~~~~~~~~~~~~~~~~~

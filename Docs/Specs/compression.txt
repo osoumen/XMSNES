@@ -1,0 +1,69 @@
+new compression scheme
+
+1st byte: new notes (1 bpc)
+
+creEviIn = b
+||||||||
+|||||||+---------n : HI: note follows		LO: 			*
+||||||+----------I : HI: use last instrument	LO: do nothing		*
+|||||+-----------i : HI: instrument follows	LO: instrument = 0	*
+||||+------------v : HI: vfx follows		LO: vfx = 0
+|||+-------------E : **
+||+--------------e : **
+|+---------------r : HI: repeat byte follows***	LO: do nothing
++----------------c : HI: compression byte	LO: note value ****
+
+*
+SPECIAL Ii == %11 behavior
+  if( n )
+    note=last, inst follows
+  else
+    note=last, inst=last
+
+TABLE
+iIn  behavior
+000: no action
+001: note follows
+010: inst=last(reactivate)
+011: inst=last, note follows
+100: inst follows
+101: inst follows,note follows
+110: inst=last, note=last
+111: inst follows, note=last
+
+
+**
+eE  behavior
+00: fx & param = 0
+01: fx = last, param = last
+10: fx follows, param follows
+11: fx = last, param follows
+
+***
+repeat byte:
+ exxxxxxx
+ 
+ x = number of rows to repeat
+ if (e)
+	following rows are empty
+ else
+	following rows use same vfx/fx/param --dont use for note/inst
+
+****
+if c=0
+	note = b
+	instrument/vfx/effect/param follow
+else
+	parse
+
+b<all> = %10101101
+
+NOTES:
+
+special care is given for effects "Pattern Break", and "Pattern Loop", these effects can jump to
+parts in the middle of a pattern, target rows will remain uncompressed.
+
+Pattern Break will also have a suffix attached to the compressed entry, it contains jump addresses so
+the program does not have to calculate these.
+
+11:13 AM 4/16/2007

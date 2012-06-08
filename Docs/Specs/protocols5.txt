@@ -1,0 +1,80 @@
+XMSNES PROTOCOLS v5
+
+6/30/2007
+
+data:
+-- = ignored
+v = validation (MSB ONLY)
+0-F = set value
+?? = undeveloped
+n  = not zero
+
+spc mimics snes validation to confirm messages
+
+---------------------WHEN NOT BUSY-----------------------------------
+
+SNES->SPC
+
+-- -- 13 v-    receive messages
+
+aa aa 14 v-    transfer sample (aaaa = address, 0 = continue transfer) -- returns sample index#
+
+-- -- 15 v-    continue transfer (doesn't set transfer address)
+
+aa xx 16 v-    register sample		-->
+ aa bb bb v-    xx = index, aaaa = sample start, bbbb = sample loop
+
+-- -- 17 v-    ready to send samples (call after transferring XMR)
+  <wait for spc requests>
+  aa aa -- v-    transfer sample (transfer data routine follows), a = sample loop point
+
+aa -- 18 v-    set xms volume, aa = volume (0-255)
+aa bb 19 v-    set main volume, aa = volume left (-128 - 127), bb = volume right
+
+aa aa 1A v-    transfer data, aaaa = address
+-- -- 1B v-    build sample directory (call after song transfer)
+-- -- 1C v-    set freq mode (linear/amiga)
+
+-- -- 1D v-    reset
+-- -- 1E v-    play
+-- -- 1F v-    pause
+
+lr bb 20 zz    play sample
+                zz bits = vccaaaaa
+                a = freq (7-bit)   hz = freq*4000
+                b = sample#
+		lr= volume (left/right)
+		c = priority
+
+xx yy 21 v-    set sfx parameter
+               if xx == 00
+                   yy = start of reserved channels
+
+SNES<-SPC
+
+vm -- -- --    song message, m = value, v = not last
+  messages may get overwritten if not processed in time
+
+sample request: (reply to snes#17)
+aa aa 9B v-    sample request     a = sample#, snes will send transfer message
+-- -- 9C v-    no sample requests
+
+transfer sample completion: (snes#14)
+aa -- -- --    sample index#
+
+-----------------data transfer procedure-----------------
+
+SNES<-SPC
+-- -- -- VV 
+
+loop until data is transfered:
+SNES->SPC
+dd dd dd vn    dd = 3 bytes data
+SNES<-SPC
+-- -- -- V-
+
+upon transfer completion:
+SNES->SPC
+-- -- -- 00
+SNES<-SPC
+-- -- -- 00

@@ -1,0 +1,258 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5A9BC47156B336A00227239 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; };
+		F5A9BC48156B336E00227239 /* brr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC1B156B330A00227239 /* brr.cpp */; };
+		F5A9BC49156B337200227239 /* files.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC1F156B330A00227239 /* files.cpp */; };
+		F5A9BC4A156B337A00227239 /* patterns.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC22156B330A00227239 /* patterns.cpp */; };
+		F5A9BC4B156B337F00227239 /* samples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC24156B330A00227239 /* samples.cpp */; };
+		F5A9BC4C156B338800227239 /* spc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC28156B330A00227239 /* spc.cpp */; };
+		F5A9BC4D156B338900227239 /* wav.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC2C156B330A00227239 /* wav.cpp */; };
+		F5A9BC4E156B338A00227239 /* simpmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC26156B330A00227239 /* simpmath.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F690486A84900D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8DD76F6C0486A84900D96B5E /* xm2snes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xm2snes; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A9BC1B156B330A00227239 /* brr.cpp */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.cpp.cpp; path = brr.cpp; sourceTree = "<group>"; };
+		F5A9BC1C156B330A00227239 /* brr.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = brr.h; sourceTree = "<group>"; };
+		F5A9BC1D156B330A00227239 /* BrrCodec.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = BrrCodec.h; sourceTree = "<group>"; };
+		F5A9BC1E156B330A00227239 /* endian.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = endian.h; sourceTree = "<group>"; };
+		F5A9BC1F156B330A00227239 /* files.cpp */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.cpp.cpp; path = files.cpp; sourceTree = "<group>"; };
+		F5A9BC20156B330A00227239 /* files.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = files.h; sourceTree = "<group>"; };
+		F5A9BC21156B330A00227239 /* mglobal.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = mglobal.h; sourceTree = "<group>"; };
+		F5A9BC22156B330A00227239 /* patterns.cpp */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.cpp.cpp; path = patterns.cpp; sourceTree = "<group>"; };
+		F5A9BC23156B330A00227239 /* patterns.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = patterns.h; sourceTree = "<group>"; };
+		F5A9BC24156B330A00227239 /* samples.cpp */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.cpp.cpp; path = samples.cpp; sourceTree = "<group>"; };
+		F5A9BC25156B330A00227239 /* samples.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = samples.h; sourceTree = "<group>"; };
+		F5A9BC26156B330A00227239 /* simpmath.cpp */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.cpp.cpp; path = simpmath.cpp; sourceTree = "<group>"; };
+		F5A9BC27156B330A00227239 /* simpmath.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = simpmath.h; sourceTree = "<group>"; };
+		F5A9BC28156B330A00227239 /* spc.cpp */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.cpp.cpp; path = spc.cpp; sourceTree = "<group>"; };
+		F5A9BC29156B330A00227239 /* spc.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = spc.h; sourceTree = "<group>"; };
+		F5A9BC2B156B330A00227239 /* types.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		F5A9BC2C156B330A00227239 /* wav.cpp */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.cpp.cpp; path = wav.cpp; sourceTree = "<group>"; };
+		F5A9BC2D156B330A00227239 /* wav.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = wav.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F660486A84900D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* xm2snes */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				C6859E8C029090F304C91782 /* Documentation */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = xm2snes;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9BC1B156B330A00227239 /* brr.cpp */,
+				F5A9BC1C156B330A00227239 /* brr.h */,
+				F5A9BC1D156B330A00227239 /* BrrCodec.h */,
+				F5A9BC1E156B330A00227239 /* endian.h */,
+				F5A9BC1F156B330A00227239 /* files.cpp */,
+				F5A9BC20156B330A00227239 /* files.h */,
+				F5A9BC21156B330A00227239 /* mglobal.h */,
+				F5A9BC22156B330A00227239 /* patterns.cpp */,
+				F5A9BC23156B330A00227239 /* patterns.h */,
+				F5A9BC24156B330A00227239 /* samples.cpp */,
+				F5A9BC25156B330A00227239 /* samples.h */,
+				F5A9BC26156B330A00227239 /* simpmath.cpp */,
+				F5A9BC27156B330A00227239 /* simpmath.h */,
+				F5A9BC28156B330A00227239 /* spc.cpp */,
+				F5A9BC29156B330A00227239 /* spc.h */,
+				F5A9BC2B156B330A00227239 /* types.h */,
+				F5A9BC2C156B330A00227239 /* wav.cpp */,
+				F5A9BC2D156B330A00227239 /* wav.h */,
+				08FB7796FE84155DC02AAC07 /* main.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76F6C0486A84900D96B5E /* xm2snes */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6859E8C029090F304C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F620486A84900D96B5E /* xm2snes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "xm2snes" */;
+			buildPhases = (
+				8DD76F640486A84900D96B5E /* Sources */,
+				8DD76F660486A84900D96B5E /* Frameworks */,
+				8DD76F690486A84900D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xm2snes;
+			productInstallPath = "$(HOME)/bin";
+			productName = xm2snes;
+			productReference = 8DD76F6C0486A84900D96B5E /* xm2snes */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "xm2snes" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* xm2snes */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F620486A84900D96B5E /* xm2snes */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F640486A84900D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A9BC47156B336A00227239 /* main.cpp in Sources */,
+				F5A9BC48156B336E00227239 /* brr.cpp in Sources */,
+				F5A9BC49156B337200227239 /* files.cpp in Sources */,
+				F5A9BC4A156B337A00227239 /* patterns.cpp in Sources */,
+				F5A9BC4B156B337F00227239 /* samples.cpp in Sources */,
+				F5A9BC4C156B338800227239 /* spc.cpp in Sources */,
+				F5A9BC4D156B338900227239 /* wav.cpp in Sources */,
+				F5A9BC4E156B338A00227239 /* simpmath.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB923208733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = "";
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = xm2snes;
+			};
+			name = Debug;
+		};
+		1DEB923308733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = "";
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = xm2snes;
+			};
+			name = Release;
+		};
+		1DEB923608733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB923708733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "xm2snes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923208733DC60010E9CD /* Debug */,
+				1DEB923308733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "xm2snes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923608733DC60010E9CD /* Debug */,
+				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

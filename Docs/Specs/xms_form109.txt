@@ -1,0 +1,142 @@
+XMS/R File Format
+  by eKid
+
+The snes optimized XM file.
+
+Last Updated : 10:09 AM 7/2/2007
+
+--------------------------------
+
+xms = full song
+xmr = raw song (no samples)
+
+  Header
+
+         0   1   2   3   4   5   6   7   8   9   A   B   C   D   E   F
+       +---+---+---+---+---+---+---+---+-------+---+---+---+---+---+---+
+0x0000 |FLEN/3 |LEN|CHN|INS|SMP|PAT|SPD|BPM|LIN| F_OFF |RES|PN0|PN1|PN2|
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+0x0010 |PN3|PN4|PN5|PN6|PN7|VER|PATT O |INST O |SAMP O |LOOP O |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+0x001E | Order Table, Length = LEN                                     |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
++LEN   | Pattern Offsets, Length = PAT * 2                             |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
++PAT*2 | Instrument Offsets, Length = INS * 2                          |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
++INS*2 | Sample Offsets, Length = SMP * 2                              |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
++SMP*2 | Sample LOOP Offsets, Length = SMP * 2                         |  <-- N/A in raw mode
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
++SMP*2 | Samp Indexes, Length = SMP*2                                  |  <-- raw mode only
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+F_OFF  | Filter Table, Length = Unknown                                |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+
+	FLEN/3		: Length of file (bytes)/3, rounded up
+	LEN		: Length of song (in the order table).
+	CHN		: Number of channels. MAX 8
+	INS		: Number of instruments.
+	SMP		: Number of samples. MAX 60
+	PAT		: Number of patterns.
+	SPD		: Default speed.
+	BPM		: Default BPM.
+	LIN		: Song uses linear frequency table (when nonzero).
+	F_OFF		: Offset to filter table
+	RES		: Restart position.
+	PN0-7		: Initial channel panning.
+	VER		: Version (109)
+	Pattern Offsets	: 16 bit offsets for pattern data.
+	Instrument Offsets : 16 bit offsets to instrument headers.
+	Sample Offsets	: 16 bit offsets to sample HEADERS.
+	Sample LOOP Offsets : 16 bit offsets to sample loop points. (for dsp source loops)
+
+	Samp Indexes	: These are references to samples in the XMP.
+
+	PATT O		: Offset to pattern table
+	INST O		: to instruments
+	SAMP O		: etc
+
+  Filter Table:
+
+         0   1   2   3   4   5   6   7   8   9   A   B
+       +---+---+---+---+---+---+---+---+---+---+---+---+
+       |VOL|VLR|C0 |C1 |C2 |C3 |C4 |C5 |C6 |C7 |EDL|FDB|
+       +---+---+---+---+---+---+---+---+---+---+---+---+
+
+         VOL            : Volume Left (8 bits signed)
+         VLR            : Volume Right (8 bits signed)
+         C0-7           : Filter coefficients
+         EDL            : Echo Delay (4 bits), top bits are 0
+         EFB            : Echo Feedback (8 bits signed)
+
+        (repeats upto 13 times)
+
+--------------------------------
+
+  Pattern Data (offsets reset)
+
+   Off  Size    Description
+   0    1       Number of Rows in pattern
+   1    ?       Packed Pattern Data
+   
+   SEE COMPRESSION.TXT FOR PACKING INFO
+
+--------------------------------
+
+  Instrument Data (offsets reset)
+
+   Off  Size    Description
+   0    1       Number of samples in instrument.
+   1    1       Noise Flag. (1=noise, 0=sampled)
+   2    1       Number of volume points (envelope) + envelope offset-1. -- VP
+   3    1       Number of panning points (envelope) + envelope offset-1. -- PP
+   4    1       Envelope Flags, bits: 0=vol_on, 1=vol_sustain, 2=vol_loop, 3=pan_on, 4=pan_sustain, 5=pan_loop
+   5    1       Volume sustain position, 0-255! (doesn't snap to points)
+   6    4       Volume loop START (x, point, value, x2-x1).
+   10   1       Volume loop END. 0-255
+   11   1       Panning sustain position, 0-255!
+   12   4       Panning loop START (x, point, value, x2-x1).
+   16   1       Panning loop END. 0-255
+   17   2       Fadeout.
+   19   1       Vibrato type.
+   20   2       Vibrato sweep value, 8.8 fixed point of 256/sweep.
+   22   1       Vibrato depth.
+   23   1       Vibrato rate.
+   24   24      Volume Envelope
+   48   24      Panning Envelope
+   72   1?      Note sample numbers, if samples > 1 then size = 96, else it's just one byte
+                  that contains the sample number for all keys.
+   
+   Envelope positions have x and y stored with 8 bits width. An array of X points
+   comes first, and then the array of Y points comes after. There's 12 points stored.
+   
+   Max Y is still 64, Max X is limited to 254! :(
+
+   (structure loops ninstrument times)
+
+---------------------------------
+
+  Sample Data (offsets reset)
+
+   0   1       Finetune (0 to 63). -- MUST BE MULTIPLE OF 2 IF USING AMIGA TABLES
+   1   1       Volume.
+   2   1       Panning, 0-64. MSB = "Set Pan" boolean.
+   3   1       Relative note.
+   4   1       Sample Duplicate. (0 = Original, 1-60 = Copy of other sample)		<----- N/A IN RAW MODE
+
+   5   ?       BRR Packed Sample Data. (Only if Sample Duplicate = 0)			<----- N/A IN RAW MODE   
+
+   (structure loops nsamples times)
+
+   NOTE: Bidi looping is NOT supported. But it can be done by adding reversed sample data.
+
+---------------------------------
+
+  That's all, other information may be needed from the XM file format.

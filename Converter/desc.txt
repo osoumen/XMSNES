@@ -1,0 +1,8 @@
+spx_aft.bin          = amiga frequency table (period lookup)
+spx_aftf.bin         = amiga frequency table (frequency lookup)
+spx_lft.bin          = linear frequency table (frequency lookup)
+spx_core.bin         = xmsnes spc driver
+spx_core.bin_real_hw = modified driver for spc output
+
+rename the spx_core.bin_real_hw to spx_core.bin if you are going to
+use the tune in your snes prod on real hardware.

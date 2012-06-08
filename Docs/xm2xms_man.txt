@@ -1,0 +1,149 @@
+	XM2SNES MANUAL
+
+	Contents
+		I. Composition
+			1. Limitations
+			2. Sample Quality
+			3. Echo Effects
+		II. Conversion
+			1. Basic
+			2. Packages
+
+	I. Composition
+
+		1. Limitations
+     
+			Although XMSNES tries to keep high compatibility
+			with XM's, there are still a few hardware and
+			software limitations that need to be followed.
+			
+			8 Channels
+				The SPC can only handle 8 channels playing
+				simultaneously!
+
+			60 samples
+				The SPC can really handle upto 256 samples,
+				but that would require a larger buffer for
+				a source reference. I also doubt that any
+				module will have over 60 samples, yet keep
+				the size limit. (unless its a crazy chip ;)
+
+			Note Limit
+				Fasttracker II lets real notes (pattern notes + relative tone)
+				go all the way to 118 (A#9), but the SPC can only play
+				frequencies below note 96, so your pitch is limited a bit.
+
+			Envelope Limit
+				Usually, envelope X positions are stored with 16 bits, but
+				when I started coding envelopes, 16 bits for X was taking
+				up WAY too much cpu. After I capped the limit to 8 bits
+				I was able to optimize it down to ~15% of the original load.
+				Also, even though its 8 bits, the limit is 254! Just a tiny
+				optimization there, so I don't have to check overflows when
+				I increase the envelope position.
+
+			Memory space
+				The exact size is unknown for now, as the size will get smaller
+				as features are added, to be safe, you should keep the XM smaller
+				than ~57kb. If your song uses amiga frequency tables then subtract another
+				4kb. Echo effects also take up memory space (see below).
+				Also, this is the final size AFTER optimization.
+
+			Unimplemented/Limited Effects
+				E3y (glissando control)
+				E4y (vibrato waveform)
+					Only E40 (sine), E41 (ramp down), and E42 (square) are supported
+					for this effect.
+				E5y (set finetune)
+					I don't even know if this is a valid XM effect.
+				E7y (set tremolo waveform)
+					Same limitations as E4y.
+
+		2. Samples
+	
+			The SNES sound chip only plays a compressed format, here's a few
+			tips to acheive maximum sample quality:
+			
+			Samples will be compressed to 9/16 ratio.
+			
+			Use 16-bit samples
+				Do not try to trim the filesize by using 8-bit samples, 16-bit samples
+				will compress down to the same size as an 8-bit sample would, but 16-bit 
+				samples have better quality.
+	
+			Keep loop points in multiples of 16
+				The samples are compressed in blocks of 16 samples, if the loop points do
+				not land evenly between the blocks then the source will be resampled by
+				the converter to correct this. This results in a slightly larger sample
+				size, and the sample may suffer some quality loss. Note that this may also
+				slightly affect amiga frequency slides.
+			
+			Dont downsample too much
+				Too low sampling rates may sound garbled.
+
+		3. Echo Effects
+
+			XMSNES uses effect E0x, which is unused in a regular XM file, for
+			controlling the special SNES hardware sound effects. Here's a
+			description of its usage:
+			
+			E01
+				Turns on echo effects for channel.
+			E02
+				Turns off echo effects for channel.
+			E03-F
+				Selects echo settings. (see below)
+
+			Creating echo settings
+				Echo setting strings are stored in the instrument names, they look
+				something like this: ">//7F00000000000000430". E03 will select the first
+				appearing setting in the instrument list, E04 will pick the second, E05
+				will pick the third, etc.
+
+			Delay memory usage
+				The echo delay takes up a bit of memory and limits your filesize. Make sure
+				you have enough extra space for the delay setting or else the player will
+				overwrite important file data. You can easily see the delay setting, it is
+				the 3rd last character in the string: ">//7F00000000000000430", it being
+				"4" in this one. The snes dsp will take delay*2kbytes of memory.
+
+	II. Conversion
+
+		1. Basic
+			The converter is pretty straightforward. Don't give it any parameters and it'll give
+			you usage info.
+
+			Basic syntax is
+			xm2snes input [output.xms]
+			
+			Input can be mod/s3m/xm
+			
+			Here's some more information about the options it uses:
+			
+			-4	4-bit mode :)
+				With this set, the sample compressor will only use filter0.
+			-q	Cancel "Set Pan" for all instruments.
+				With this set, the xm instrument's panning setting will be ignored.
+			-p	Initial Panning separation.
+				-p<percent> specifies initial panning settings, -p100 will pan
+				the channels hard-left/hard-right/hard-left/hard-right/etc.
+				-p0 will pan all the channels to center.
+			-m	Volume ramp ending of non-looping samples.
+				If a sample waveform doesn't end at 0, a click may be heard when the 
+				sample finishes. This option will fade the end of all samples to remove
+				these clicks.
+			-d	Discard's XMS output file.
+			-b	Builds SPC copy of file.
+				Specify this option to generate an spc file loaded with the song.
+
+		2. Packages
+			
+			Specifying a "txt" file as input will start building an xmsnes package.
+			See example.txt.
+			
+			"/samples" begins the sample list
+			"/songs" begins the song list
+			"/output" sets the xmp output file
+
+_________________________________________________________________________
+Last Updated: 10:54 PM 6/30/2007                                    v1.02
