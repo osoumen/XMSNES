@@ -195,7 +195,32 @@
 	<key>Name</key>
 	<string>Default</string>
 	<key>Notifications</key>
-	<array/>
+	<array>
+		<dict>
+			<key>XCObserverAutoDisconnectKey</key>
+			<true/>
+			<key>XCObserverDefintionKey</key>
+			<dict>
+				<key>PBXStatusErrorsKey</key>
+				<integer>0</integer>
+			</dict>
+			<key>XCObserverFactoryKey</key>
+			<string>XCPerspectivesSpecificationIdentifier</string>
+			<key>XCObserverGUIDKey</key>
+			<string>XCObserverProjectIdentifier</string>
+			<key>XCObserverNotificationKey</key>
+			<string>PBXStatusBuildStateMessageNotification</string>
+			<key>XCObserverTargetKey</key>
+			<string>XCMainBuildResultsModuleGUID</string>
+			<key>XCObserverTriggerKey</key>
+			<string>awakenModuleWithObserver:</string>
+			<key>XCObserverValidationKey</key>
+			<dict>
+				<key>PBXStatusErrorsKey</key>
+				<integer>2</integer>
+			</dict>
+		</dict>
+	</array>
 	<key>OpenEditors</key>
 	<array/>
 	<key>PerspectiveWidths</key>
@@ -295,7 +320,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>459 55 1072 973 0 0 1680 1028 </string>
+						<string>399 55 1072 973 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -325,7 +350,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F59B1FC01580E71D00686414</string>
+										<string>F5A0A8021582EC5000183824</string>
 										<key>history</key>
 										<array>
 											<string>F5741E0C157B2A2C002B4DF0</string>
@@ -346,7 +371,7 @@
 											<string>F59B1FBC1580E71D00686414</string>
 											<string>F59B1FBD1580E71D00686414</string>
 											<string>F59B1FBE1580E71D00686414</string>
-											<string>F59B1FBF1580E71D00686414</string>
+											<string>F59B1FC01580E71D00686414</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -360,7 +385,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {864, 927}}</string>
 								<key>RubberWindowFrame</key>
-								<string>459 55 1072 973 0 0 1680 1028 </string>
+								<string>399 55 1072 973 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -380,7 +405,7 @@
 								<key>Frame</key>
 								<string>{{0, 932}, {864, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>459 55 1072 973 0 0 1680 1028 </string>
+								<string>399 55 1072 973 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -404,9 +429,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>F59B1F9C1580E18F00686414</string>
+				<string>F5A0A7FF1582EC5000183824</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>F59B1F9D1580E18F00686414</string>
+				<string>F5A0A8001582EC5000183824</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -527,7 +552,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>0.0</real>
+	<real>360901712.32887799</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -544,15 +569,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>F59B1FA61580E18F00686414</string>
-		<string>F59B1FA71580E18F00686414</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>F5A9BC11156B32E200227239</string>
 		<string>/Users/osoumen/XMSNES/Source/Converter/xm2snes.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>459 55 1072 973 0 0 1680 1028 </string>
+	<string>399 55 1072 973 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -597,9 +618,9 @@
 								<key>PBXProjectModuleLabel</key>
 								<string>ビルド結果</string>
 								<key>XCBuildResultsTrigger_Collapse</key>
-								<integer>1021</integer>
+								<integer>1024</integer>
 								<key>XCBuildResultsTrigger_Open</key>
-								<integer>1011</integer>
+								<integer>1012</integer>
 							</dict>
 							<key>GeometryConfiguration</key>
 							<dict>
@@ -629,7 +650,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>F5A9BC11156B32E200227239</string>
-				<string>F59B1F9E1580E18F00686414</string>
+				<string>F5A0A8011582EC5000183824</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

@@ -36,8 +36,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 360767878;
-			PBXWorkspaceStateSaveDate = 360767878;
+			PBXPerProjectTemplateStateSaveDate = 360901705;
+			PBXWorkspaceStateSaveDate = 360901705;
 		};
 		perUserProjectItems = {
 			F55184E6157B46D10019957F /* PBXTextBookmark */ = F55184E6157B46D10019957F /* PBXTextBookmark */;
@@ -58,8 +58,8 @@
 			F59B1FBC1580E71D00686414 /* PBXTextBookmark */ = F59B1FBC1580E71D00686414 /* PBXTextBookmark */;
 			F59B1FBD1580E71D00686414 /* PBXTextBookmark */ = F59B1FBD1580E71D00686414 /* PBXTextBookmark */;
 			F59B1FBE1580E71D00686414 /* PBXTextBookmark */ = F59B1FBE1580E71D00686414 /* PBXTextBookmark */;
-			F59B1FBF1580E71D00686414 /* PBXTextBookmark */ = F59B1FBF1580E71D00686414 /* PBXTextBookmark */;
 			F59B1FC01580E71D00686414 /* PBXTextBookmark */ = F59B1FC01580E71D00686414 /* PBXTextBookmark */;
+			F5A0A8021582EC5000183824 /* PBXTextBookmark */ = F5A0A8021582EC5000183824 /* PBXTextBookmark */;
 		};
 		sourceControlManager = F5A9BC13156B32E200227239 /* Source Control */;
 		userBuildSettings = {
@@ -259,17 +259,17 @@
 		vrLen = 1098;
 		vrLoc = 157;
 	};
-	F59B1FBF1580E71D00686414 /* PBXTextBookmark */ = {
+	F59B1FC01580E71D00686414 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = F5A9BC22156B330A00227239 /* patterns.cpp */;
-		name = "patterns.cpp: 1188";
-		rLen = 6;
-		rLoc = 27349;
+		name = "patterns.cpp: 930";
+		rLen = 0;
+		rLoc = 21917;
 		rType = 0;
-		vrLen = 1289;
-		vrLoc = 26490;
+		vrLen = 2600;
+		vrLoc = 0;
 	};
-	F59B1FC01580E71D00686414 /* PBXTextBookmark */ = {
+	F5A0A8021582EC5000183824 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = F5A9BC22156B330A00227239 /* patterns.cpp */;
 		name = "patterns.cpp: 930";
@@ -396,7 +396,7 @@
 	};
 	F5A9BC22156B330A00227239 /* patterns.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1489, 16861}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1489, 16250}}";
 			sepNavSelRange = "{21917, 0}";
 			sepNavVisRange = "{0, 2600}";
 		};
