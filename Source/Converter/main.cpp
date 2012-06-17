@@ -2081,6 +2081,7 @@ int WriteXMS( char* file_out, bool rawmode )
 							printf( "%i, ", xsamp[a].filter );
 						
 						cstatus comp_results;
+						samp_amp = 1.0;
 redocompress:
 						samp_overflow =  BRR_AutoFilter( &xsamp[a], fb, File_Tell( 0 ), &xhead, a, xsamp[a].filter, &comp_results, samp_amp );
 						if( samp_overflow )
