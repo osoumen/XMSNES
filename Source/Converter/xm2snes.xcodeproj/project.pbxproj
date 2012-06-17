@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F57236E6158E3FC2007A6BCB /* brr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC1B156B330A00227239 /* brr.cpp */; };
+		F57236E7158E3FC3007A6BCB /* files.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC1F156B330A00227239 /* files.cpp */; };
+		F57236E8158E3FC4007A6BCB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; };
+		F57236E9158E3FC6007A6BCB /* samples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC24156B330A00227239 /* samples.cpp */; };
+		F57236EA158E3FC7007A6BCB /* patterns.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC22156B330A00227239 /* patterns.cpp */; };
+		F57236EB158E3FC8007A6BCB /* simpmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC26156B330A00227239 /* simpmath.cpp */; };
+		F57236EC158E3FC9007A6BCB /* spc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC28156B330A00227239 /* spc.cpp */; };
+		F57236ED158E3FCA007A6BCB /* wav.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC2C156B330A00227239 /* wav.cpp */; };
 		F5A9BC47156B336A00227239 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; };
 		F5A9BC48156B336E00227239 /* brr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC1B156B330A00227239 /* brr.cpp */; };
 		F5A9BC49156B337200227239 /* files.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC1F156B330A00227239 /* files.cpp */; };
@@ -16,6 +24,17 @@
 		F5A9BC4D156B338900227239 /* wav.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC2C156B330A00227239 /* wav.cpp */; };
 		F5A9BC4E156B338A00227239 /* simpmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A9BC26156B330A00227239 /* simpmath.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		F572370E158E4132007A6BCB /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = fr.inria.win32.compiler;
+			fileType = sourcecode.c;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8DD76F690486A84900D96B5E /* CopyFiles */ = {
@@ -32,6 +51,7 @@
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* xm2snes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xm2snes; sourceTree = BUILT_PRODUCTS_DIR; };
+		F57236BB158E3EF9007A6BCB /* xm2snes.exe */ = {isa = PBXFileReference; explicitFileType = compiled.win32.executable; includeInIndex = 0; path = xm2snes.exe; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A9BC1B156B330A00227239 /* brr.cpp */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.cpp.cpp; path = brr.cpp; sourceTree = "<group>"; };
 		F5A9BC1C156B330A00227239 /* brr.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = brr.h; sourceTree = "<group>"; };
 		F5A9BC1D156B330A00227239 /* BrrCodec.h */ = {isa = PBXFileReference; fileEncoding = 2147483649; lastKnownFileType = sourcecode.c.h; path = BrrCodec.h; sourceTree = "<group>"; };
@@ -54,6 +74,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		8DD76F660486A84900D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F57236B9158E3EF9007A6BCB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -103,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				8DD76F6C0486A84900D96B5E /* xm2snes */,
+				F57236BB158E3EF9007A6BCB /* xm2snes.exe */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +163,23 @@
 			productReference = 8DD76F6C0486A84900D96B5E /* xm2snes */;
 			productType = "com.apple.product-type.tool";
 		};
+		F57236BA158E3EF9007A6BCB /* win32 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F57236BE158E3F17007A6BCB /* Build configuration list for PBXNativeTarget "win32" */;
+			buildPhases = (
+				F57236B8158E3EF9007A6BCB /* Sources */,
+				F57236B9158E3EF9007A6BCB /* Frameworks */,
+			);
+			buildRules = (
+				F572370E158E4132007A6BCB /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = win32;
+			productName = win32;
+			productReference = F57236BB158E3EF9007A6BCB /* xm2snes.exe */;
+			productType = "fr.inria.win32.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -155,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				8DD76F620486A84900D96B5E /* xm2snes */,
+				F57236BA158E3EF9007A6BCB /* win32 */,
 			);
 		};
 /* End PBXProject section */
@@ -172,6 +218,21 @@
 				F5A9BC4C156B338800227239 /* spc.cpp in Sources */,
 				F5A9BC4D156B338900227239 /* wav.cpp in Sources */,
 				F5A9BC4E156B338A00227239 /* simpmath.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F57236B8158E3EF9007A6BCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F57236E6158E3FC2007A6BCB /* brr.cpp in Sources */,
+				F57236E7158E3FC3007A6BCB /* files.cpp in Sources */,
+				F57236E8158E3FC4007A6BCB /* main.cpp in Sources */,
+				F57236E9158E3FC6007A6BCB /* samples.cpp in Sources */,
+				F57236EA158E3FC7007A6BCB /* patterns.cpp in Sources */,
+				F57236EB158E3FC8007A6BCB /* simpmath.cpp in Sources */,
+				F57236EC158E3FC9007A6BCB /* spc.cpp in Sources */,
+				F57236ED158E3FCA007A6BCB /* wav.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +292,38 @@
 			};
 			name = Release;
 		};
+		F57236BC158E3EF9007A6BCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = win32;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = "$(HOME)/bin";
+				PRODUCT_NAME = xm2snes;
+				SDKROOT = "";
+				USE_WIN32_GUI = YES;
+				WIN32_SYSTEMLIBS = "-Wl,-lgcc";
+			};
+			name = Debug;
+		};
+		F57236BD158E3EF9007A6BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = win32;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				INSTALL_PATH = "$(HOME)/bin";
+				PRODUCT_NAME = xm2snes;
+				SDKROOT = "";
+				USE_WIN32_GUI = YES;
+				WIN32_SYSTEMLIBS = "-Wl,-lgcc";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -248,6 +341,15 @@
 			buildConfigurations = (
 				1DEB923608733DC60010E9CD /* Debug */,
 				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F57236BE158E3F17007A6BCB /* Build configuration list for PBXNativeTarget "win32" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F57236BC158E3EF9007A6BCB /* Debug */,
+				F57236BD158E3EF9007A6BCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

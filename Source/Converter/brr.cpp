@@ -24,7 +24,7 @@
 
 // SPECIAL THANKS TO DMV47 AND MADBRAIN!!
 
-#define looploss_tolerance 30000	// tweak? :O
+#define looploss_tolerance 10000	// tweak? :O
 
 #include "mglobal.h"
 #include "simpmath.h"
@@ -179,7 +179,11 @@ int BRR_AutoFilter( XMS_SAMPLE* samp, byte* fb, int file_offset, XMS_HEAD* head,
 				lc_range = (fb[w_loop] & SAMPHEAD_RANGE) >> 4;
 				lc_value = fb[w_loop+1] >> 4;
 				lc_value <<= lc_range;
-				lc_value += ComputeFilter( sbuffer[15], sbuffer[14], lc_filter );
+				lc_value >>= 1;
+				lc_value += ComputeFilter( sbuffer[1], sbuffer[0], lc_filter );
+				lc_value = (signed short int)(lc_value << 1 );
+				lc_value >>= 1;
+				//printf("looploss=%d\n",abs( lc_value - loop_v1 ));
 				if( abs( lc_value - loop_v1 ) > looploss_tolerance )
 				{
 					// redo compression...
